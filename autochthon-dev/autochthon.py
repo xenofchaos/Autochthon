@@ -11,7 +11,9 @@ from discord.ext import commands
 
 
 def config_load():
-    with open('data/config.json', 'r', encoding='utf-8-sig') as doc:
+    basepath = os.path.dirname(__file__)
+    filepath = os.path.join(basepath, 'data/config.json')
+    with open(filepath, 'r', encoding='utf-8-sig') as doc:
         #  Please make sure encoding is correct, especially after editing the config file
         return json.load(doc)
 
