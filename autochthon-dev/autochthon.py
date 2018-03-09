@@ -149,6 +149,8 @@ def setup(bot):\n\
 
 class Bot(commands.Bot):
     def __init__(self, **kwargs):
+        config = kwargs.pop('config')
+        self.prefix = config['prefix']
         super().__init__(
             command_prefix=self.get_prefix_,
             description=kwargs.pop('description')
@@ -176,8 +178,7 @@ class Bot(commands.Bot):
         I have made this a coroutine just to show that it can be done. If you needed async logic in here it can be done.
         A good example of async logic would be retrieving a prefix from a database.
         """
-        prefix = ['!', '.', '?', '$']
-        return commands.when_mentioned_or(*prefix)(bot, message)
+        return commands.when_mentioned_or(*self.prefix)(bot, message)
 
     async def load_all_extensions(self):
         """
