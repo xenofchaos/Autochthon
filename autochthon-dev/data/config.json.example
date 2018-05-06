@@ -1,0 +1,5 @@
+﻿{
+  "description": "testbot",
+  "token": "example",
+  "prefix": ["#%"]
+}
