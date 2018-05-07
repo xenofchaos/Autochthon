@@ -15,12 +15,12 @@ class ServerEvents:
             elif role.name == 'Officer':
                 officer = role
 
-        await defaultChannel.send(f'Welcome {member.mention}!\nPlease submit your in-game name, corp, and preferred RS levels for processing.\nAn {admin.mention} or {officer.mention} will be with you shortly.')
+        await defaultChannel.send(f'Welcome {member.mention}!\nAn {admin.mention} or {officer.mention} will be with you shortly. (Assuming any of them are sober or give two shits)')
 
     async def on_member_remove(self, member):
         guild = member.guild
         defaultChannel = guild.system_channel
-        await defaultChannel.send(f'RIP {member.name}. You might be missed.')
+        await defaultChannel.send(f'Goodbye and good riddance {member.name}. You might be missed.')
 
 def setup(bot):
     bot.add_cog(ServerEvents(bot))
