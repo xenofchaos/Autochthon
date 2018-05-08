@@ -54,14 +54,14 @@ class CorpCommands:
     async def moc(self, ctx, member: discord.Member, nickname: str, *levels: int):
         await self.assign_moc(ctx, member, nickname, levels)
 
-    @assign.command()
-    async def rs(self, ctx, member: discord.Member, *levels: int):
+    @assign.command(name='rs')
+    async def ass_rs(self, ctx, member: discord.Member, *levels: int):
         roleNames = await roleManagement.set_rs_roles(ctx, member, levels)
         await ctx.send(f'{member.name} has been granted the roles {roleNames}')
 
-    @assign.command()
-    async def ws(self, ctx, member: discord.Member, *levels: int):
-        roleNames = await roleManagement.set_ws_roles(ctx, member)
+    @assign.command(name='ws')
+    async def ass_ws(self, ctx, member: discord.Member):
+        roleNames = await roleManagement.set_ws_role(ctx, member)
         await ctx.send(f'{member.name} has been granted the role {roleNames}')
 
     @assign.command()
@@ -84,14 +84,14 @@ class CorpCommands:
     async def roles(self, ctx, member: discord.Member):
         await self.remove_member(ctx, member)
 
-    @revoke.command()
-    async def rs(self, ctx, member: discord.Member, *levels: int):
+    @revoke.command(name='rs')
+    async def rem_rs(self, ctx, member: discord.Member, *levels: int):
         roleNames = await roleManagement.remove_rs_roles(ctx, member, levels)
         await ctx.send(f'{member.name} has been removed from {roleNames}')
 
-    @revoke.command()
-    async def ws(self, ctx, member: discord.Member, *levels: int):
-        roleNames = await roleManagement.set_ws_roles(ctx, member)
+    @revoke.command(name='ws')
+    async def rem_ws(self, ctx, member: discord.Member):
+        roleNames = await roleManagement.remove_ws_role(ctx, member)
         await ctx.send(f'{member.name} has been removed from {roleNames}')
 
 ###############################################################################

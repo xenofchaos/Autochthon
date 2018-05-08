@@ -24,34 +24,34 @@ class StarCommands:
         await ctx.send(f'Please choose a subcommand.')
 
     @commands.has_any_role("moc", "Ally")
-    @iam.command()
-    async def rs(self, ctx, *levels: int):
+    @iam.command(name='rs')
+    async def iam_rs(self, ctx, *levels: int):
         await self.set_rs_roles(ctx, levels)
 
     @commands.has_role("moc")
-    @iam.command()
-    async def ws(self, ctx):
+    @iam.command(name='ws')
+    async def iam_ws(self, ctx):
         roleNames = await roleManagement.set_ws_role(ctx, ctx.author)
         await ctx.send(f'You have been granted the role {roleNames}')
 
     @commands.has_any_role("moc", "Ally")
-    @iam.command()
-    async def rs5(self, ctx):
+    @iam.command(name='rs5')
+    async def iam_rs5(self, ctx):
         await self.set_rs_roles(ctx, [5])
 
     @commands.has_any_role("moc", "Ally")
-    @iam.command()
-    async def rs6(self, ctx):
+    @iam.command(name='rs6')
+    async def iam_rs6(self, ctx):
         await self.set_rs_roles(ctx, [6])
 
     @commands.has_any_role("moc", "Ally")
-    @iam.command()
-    async def rs7(self, ctx):
+    @iam.command(name='rs7')
+    async def iam_rs7(self, ctx):
         await self.set_rs_roles(ctx, [7])
 
     @commands.has_any_role("moc", "Ally")
-    @iam.command()
-    async def rs8(self, ctx):
+    @iam.command(name='rs8')
+    async def iam_rs8(self, ctx):
         await self.set_rs_roles(ctx, [8])
 
 # Revoke Commands #############################################################
@@ -62,34 +62,34 @@ class StarCommands:
         await ctx.send(f'Please choose a subcommand.')
 
     @commands.has_any_role("moc", "Ally")
-    @iamnot.command()
-    async def rs(self, ctx, *levels: int):
+    @iamnot.command(name='rs')
+    async def iamnot_rs(self, ctx, *levels: int):
         await self.remove_rs_roles(ctx, levels)
 
     @commands.has_any_role("moc")
-    @iamnot.command()
-    async def ws(self, ctx):
+    @iamnot.command(name='ws')
+    async def iamnot_ws(self, ctx):
         roleNames = await roleManagement.remove_ws_role(ctx, ctx.author)
         await ctx.send(f'You have been removed from {roleNames}')
 
     @commands.has_any_role("moc", "Ally")
-    @iamnot.command()
-    async def rs5(self, ctx):
+    @iamnot.command(name='rs5')
+    async def iamnot_rs5(self, ctx):
         await self.remove_rs_roles(ctx, [5])
 
     @commands.has_any_role("moc", "Ally")
-    @iamnot.command()
-    async def rs6(self, ctx):
+    @iamnot.command(name='rs6')
+    async def iamnot_rs6(self, ctx):
         await self.remove_rs_roles(ctx, [6])
 
     @commands.has_any_role("moc", "Ally")
-    @iamnot.command()
-    async def rs7(self, ctx):
+    @iamnot.command(name='rs7')
+    async def iamnot_rs7(self, ctx):
         await self.remove_rs_roles(ctx, [7])
 
     @commands.has_any_role("moc", "Ally")
-    @iamnot.command()
-    async def rs8(self, ctx):
+    @iamnot.command(name='rs8')
+    async def iamnot_rs8(self, ctx):
         await self.remove_rs_roles(ctx, [8])
 
 def setup(bot):
